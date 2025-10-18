@@ -1,6 +1,6 @@
 {
   "name": "clouddrive2-offline",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "一键添加磁力链接到 CloudDrive2 离线下载",
   "private": true,
   "author": {
