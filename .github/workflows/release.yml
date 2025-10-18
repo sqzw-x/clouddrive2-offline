@@ -52,11 +52,6 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Generate Changelog
-        run: pnpx changelogithub
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
       - name: Create Release
         uses: svenstaro/upload-release-action@v2
         with:
@@ -64,3 +59,8 @@ jobs:
           overwrite: true
           file: dist/*.user.js
           prerelease: false
+
+      - name: Generate Changelog
+        run: pnpx changelogithub
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
