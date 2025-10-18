@@ -59,3 +59,4 @@ jobs:
           overwrite: true
           file: dist/*.user.js
           prerelease: false
+          tag: ${{ github.event.inputs.tag || github.ref_name }}
