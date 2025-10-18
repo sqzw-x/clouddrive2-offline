@@ -4,7 +4,7 @@
 
 ## 安装
 
-[GitHub Release](https://github.com/sqzw-x/clouddrive2-offline/raw/release-nightly/bilibili-gate.mini.user.js)
+[GitHub Release](https://github.com/sqzw-x/clouddrive2-offline/releases/latest/download/clouddrive2-offline.user.js)
 
 ## 功能
 
