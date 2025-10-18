@@ -59,8 +59,3 @@ jobs:
           overwrite: true
           file: dist/*.user.js
           prerelease: false
-
-      - name: Generate Changelog
-        run: pnpx changelogithub
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
