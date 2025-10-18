@@ -16,6 +16,7 @@ import {
   OfflineQuotaRequestSchema,
   RemoveOfflineFilesRequestSchema,
 } from "@/proto/clouddrive_pb";
+import gmFetch from "./gmFetch";
 
 function getCloudDriveClient(): Client<typeof CloudDriveFileSrv> {
   const cfg = getConfig();
@@ -30,6 +31,8 @@ function getCloudDriveClient(): Client<typeof CloudDriveFileSrv> {
   const transport = createGrpcWebTransport({
     baseUrl: cfg.grpcBaseUrl,
     interceptors: [authInterceptor],
+    // Use GM-based fetch to bypass page CSP when available
+    fetch: (input, init) => gmFetch(input, init),
   });
 
   return createClient(CloudDriveFileSrv, transport);
