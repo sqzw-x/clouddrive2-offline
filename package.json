@@ -1,8 +1,15 @@
 {
-  "name": "cf2-userscript",
-  "version": "0.1.0",
+  "name": "clouddrive2-offline",
+  "version": "1.0.0",
+  "description": "一键添加磁力链接到 CloudDrive2 离线下载",
   "private": true,
+  "author": {
+    "name": "sqzw-x",
+    "email": "mdcx.feedback@gmail.com",
+    "url": "https://github.com/sqzw-x"
+  },
   "type": "module",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

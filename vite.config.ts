@@ -17,20 +17,14 @@ export default defineConfig({
     monkey({
       entry: "src/userscript.tsx",
       userscript: {
-        name: "CF2 离线下载助手",
-        namespace: "https://example.com/your-namespace",
-        version: "0.1.0",
-        description: "Your userscript description here",
-        author: "You",
+        namespace: "https://github.com/sqzw-x",
         match: ["https://*/*", "http://*/*"],
         connect: ["*"],
       },
       build: {
-        fileName: "userscript.user.js",
         externalGlobals: {
           // antd: cdn.npmmirror("antd", "dist/antd.min.js"),
         },
-        // Always generate sourcemap for easier debug (can be toggled off in release)
       },
       server: {
         // mountGmApi: true,
