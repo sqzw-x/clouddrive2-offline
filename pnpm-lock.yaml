@@ -54,6 +54,9 @@ importers:
       less:
         specifier: ^4.4.2
         version: 4.4.2
+      npm-check-updates:
+        specifier: ^19.1.1
+        version: 19.1.1
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -828,6 +831,11 @@ packages:
   needle@3.3.1:
     resolution: {integrity: sha512-6k0YULvhpw+RoLNiQCRKOl09Rv1dPLr8hHnVjHqdolKwDrdNyk+Hmrthi4lIGPPz3r39dLx0hsF5s40sZ3Us4Q==}
     engines: {node: '>= 4.4.x'}
+    hasBin: true
+
+  npm-check-updates@19.1.1:
+    resolution: {integrity: sha512-vy/uNbaK6Xfj/QzM8OXeALZak67E0uHjUlbdT1YGy4bdj0xlBU6AVd+8bscY8vlDpyzL6Y7mxcrX8kzEDeEpNg==}
+    engines: {node: '>=20.0.0', npm: '>=8.12.1'}
     hasBin: true
 
   open@10.2.0:
@@ -1929,6 +1937,8 @@ snapshots:
       iconv-lite: 0.6.3
       sax: 1.4.1
     optional: true
+
+  npm-check-updates@19.1.1: {}
 
   open@10.2.0:
     dependencies:

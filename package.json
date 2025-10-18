@@ -8,8 +8,10 @@
     "build": "vite build",
     "gen": "buf generate --template buf.gen.yaml",
     "preview": "vite preview",
+    "ci": "biome ci",
     "lint": "biome lint --write",
-    "format": "biome format --write"
+    "format": "biome format --write",
+    "dep": "ncu -i --format group"
   },
   "dependencies": {
     "@ant-design/icons": "^6.1.0",
@@ -29,6 +31,7 @@
     "@types/tampermonkey": "^5.0.5",
     "@vitejs/plugin-react-swc": "^4.1.0",
     "less": "^4.4.2",
+    "npm-check-updates": "^19.1.1",
     "typescript": "^5.9.3",
     "vite": "^7.1.10",
     "vite-plugin-monkey": "^7.1.4"
