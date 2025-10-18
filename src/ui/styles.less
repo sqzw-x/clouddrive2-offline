@@ -1,0 +1,96 @@
+@import 'antd/dist/reset.css';
+
+#cf2-userscript-root {
+  position: fixed;
+  z-index: 1000000;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* 允许 Modal/Tabs/表格等正常交互 */
+#cf2-userscript-root .ant-modal,
+#cf2-userscript-root .ant-modal-mask,
+#cf2-userscript-root .ant-modal-root,
+#cf2-userscript-root .ant-tabs,
+#cf2-userscript-root .ant-table {
+  pointer-events: auto;
+}
+
+#cf2-userscript-root .ant-float-btn {
+  pointer-events: auto;
+}
+
+/* 让全局消息/通知位于遮罩之上并可点击 */
+#cf2-userscript-root .ant-notification,
+#cf2-userscript-root .ant-notification-notice,
+#cf2-userscript-root .ant-message,
+#cf2-userscript-root .ant-message-notice,
+#cf2-userscript-root .ant-message-notice-content {
+  z-index: 1000005;
+  pointer-events: auto;
+}
+
+#cf2-userscript-root .ant-notification,
+#cf2-userscript-root .ant-message {
+  position: fixed;
+}
+
+/* ----- Enhanced style for injected "离线下载" button ----- */
+.cf2-offline-btn {
+  --cf2-btn-bg: #1677ff;
+  /* Ant Design primary */
+  --cf2-btn-bg-hover: #3c8cff;
+  --cf2-btn-bg-active: #0b5ed7;
+  --cf2-btn-fg: #fff;
+  --cf2-btn-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+  --cf2-btn-shadow-focus: 0 0 0 3px rgba(22, 119, 255, 0.25);
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 10px;
+  height: 26px;
+  line-height: 22px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--cf2-btn-fg);
+  background: var(--cf2-btn-bg);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  box-shadow: var(--cf2-btn-shadow);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.02s ease;
+}
+
+.cf2-offline-btn:hover {
+  background: var(--cf2-btn-bg-hover);
+}
+
+.cf2-offline-btn:active {
+  background: var(--cf2-btn-bg-active);
+  transform: translateY(0.5px);
+}
+
+.cf2-offline-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--cf2-btn-shadow-focus);
+}
+
+.cf2-offline-btn[disabled],
+.cf2-offline-btn[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Small inline magnet icon using currentColor for flexibility */
+.cf2-offline-btn__icon {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  flex: 0 0 14px;
+  background: currentColor;
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 18 0v4.5a2.5 2.5 0 0 1-5 0V12"/><path d="M8 12v4.5a2.5 2.5 0 0 1-5 0V12"/></svg>') no-repeat center / contain;
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 18 0v4.5a2.5 2.5 0 0 1-5 0V12"/><path d="M8 12v4.5a2.5 2.5 0 0 1-5 0V12"/></svg>') no-repeat center / contain;
+}
