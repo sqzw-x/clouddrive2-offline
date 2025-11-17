@@ -23,24 +23,24 @@
   "dependencies": {
     "@ant-design/icons": "^6.1.0",
     "@ant-design/v5-patch-for-react-19": "^1.0.3",
-    "@bufbuild/protobuf": "^2.9.0",
+    "@bufbuild/protobuf": "^2.10.1",
     "@connectrpc/connect": "^2.1.0",
     "@connectrpc/connect-web": "^2.1.0",
-    "antd": "^5.27.5",
+    "antd": "^5.29.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.2.6",
-    "@types/node": "^24.8.1",
-    "@types/react": "^19.2.2",
-    "@types/react-dom": "^19.2.2",
+    "@biomejs/biome": "^2.3.6",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
     "@types/tampermonkey": "^5.0.5",
-    "@vitejs/plugin-react-swc": "^4.1.0",
+    "@vitejs/plugin-react-swc": "^4.2.2",
     "less": "^4.4.2",
-    "npm-check-updates": "^19.1.1",
+    "npm-check-updates": "^19.1.2",
     "typescript": "^5.9.3",
-    "vite": "^7.1.10",
-    "vite-plugin-monkey": "^7.1.4"
+    "vite": "^7.2.2",
+    "vite-plugin-monkey": "^7.1.5"
   }
 }
