@@ -51,9 +51,6 @@ importers:
       '@vitejs/plugin-react-swc':
         specifier: ^4.2.2
         version: 4.2.2(vite@7.2.2(@types/node@24.10.1)(less@4.4.2))
-      less:
-        specifier: ^4.4.2
-        version: 4.4.2
       npm-check-updates:
         specifier: ^19.1.2
         version: 19.1.2
@@ -1762,6 +1759,7 @@ snapshots:
   copy-anything@2.0.6:
     dependencies:
       is-what: 3.14.1
+    optional: true
 
   copy-to-clipboard@3.3.3:
     dependencies:
@@ -1879,7 +1877,8 @@ snapshots:
 
   is-mobile@5.0.0: {}
 
-  is-what@3.14.1: {}
+  is-what@3.14.1:
+    optional: true
 
   is-wsl@3.1.0:
     dependencies:
@@ -1904,6 +1903,7 @@ snapshots:
       mime: 1.6.0
       needle: 3.3.1
       source-map: 0.6.1
+    optional: true
 
   magic-string@0.30.19:
     dependencies:
@@ -1947,7 +1947,8 @@ snapshots:
       is-inside-container: 1.0.0
       wsl-utils: 0.1.0
 
-  parse-node-version@1.0.1: {}
+  parse-node-version@1.0.1:
+    optional: true
 
   path-key@3.1.1: {}
 
@@ -2378,7 +2379,8 @@ snapshots:
 
   toggle-selection@1.0.6: {}
 
-  tslib@2.8.1: {}
+  tslib@2.8.1:
+    optional: true
 
   typescript@5.9.3: {}
 
