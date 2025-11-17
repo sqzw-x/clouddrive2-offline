@@ -9,7 +9,7 @@ import { getConfig } from "@/config";
 import { addOffline } from "@/grpc/client";
 import { App } from "./ui/App";
 
-function ensureContainer(id = "cf2-userscript-root") {
+function ensureContainer(id = "cd2-userscript-root") {
   let el = document.getElementById(id);
   if (!el) {
     el = document.createElement("div");
@@ -28,17 +28,17 @@ function ensureContainer(id = "cf2-userscript-root") {
   const addButtons = () => {
     const anchors = Array.from(document.querySelectorAll('a[href^="magnet:"]')) as HTMLAnchorElement[];
     anchors.forEach((a) => {
-      if (a.dataset.cf2Injected === "1") return;
-      a.dataset.cf2Injected = "1";
+      if (a.dataset.cd2Injected === "1") return;
+      a.dataset.cd2Injected = "1";
       const btn = document.createElement("button");
-      btn.className = "cf2-offline-btn";
+      btn.className = "cd2-offline-btn";
       btn.setAttribute("type", "button");
       btn.setAttribute("aria-label", "提交离线下载");
       btn.title = "提交到 CloudDrive 离线下载";
       // minimal spacing from the link
       btn.style.marginLeft = "8px";
       const icon = document.createElement("span");
-      icon.className = "cf2-offline-btn__icon";
+      icon.className = "cd2-offline-btn__icon";
       const label = document.createElement("span");
       label.textContent = "离线下载";
       btn.appendChild(icon);

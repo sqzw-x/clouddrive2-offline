@@ -5,7 +5,7 @@ export type AppConfig = {
   offlineDestPath: string; // default path for offline download
 };
 
-const KEY = "cf2_config_v1";
+const KEY = "cd2_config_v1";
 
 export function getConfig(): AppConfig {
   const v = (typeof GM_getValue !== "undefined" ? GM_getValue(KEY, null) : null) as AppConfig | null;
