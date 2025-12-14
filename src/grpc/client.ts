@@ -38,12 +38,16 @@ function getCloudDriveClient(): Client<typeof CloudDriveFileSrv> {
   return createClient(CloudDriveFileSrv, transport);
 }
 
-export async function addOffline(urlOrMagnet: string, destPath: string): Promise<FileOperationResult> {
+/** 提交离线下载任务
+ * @param urls 支持多个 URL, 用换行符分隔
+ * @param destPath 目标路径
+ */
+export async function addOffline(urls: string, destPath: string): Promise<FileOperationResult> {
   const cfg = getConfig();
   const toFolder = destPath && destPath.length > 0 ? destPath : cfg.offlineDestPath;
 
   const req = create(AddOfflineFileRequestSchema, {
-    urls: urlOrMagnet,
+    urls: urls,
     toFolder,
   });
 

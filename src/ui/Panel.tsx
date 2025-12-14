@@ -13,6 +13,8 @@ export function Panel({ open, onClose }: PanelProps) {
   const { notification, message } = AntdApp.useApp();
   const [form] = Form.useForm();
   const [testingUrl, setTestingUrl] = useState("");
+  const [batchUrls, setBatchUrls] = useState("");
+  const [submitting, setSubmitting] = useState(false);
   const [activeKey, setActiveKey] = useState("settings");
 
   const cfg = getConfig();
@@ -31,6 +33,28 @@ export function Panel({ open, onClose }: PanelProps) {
     } catch (err) {
       console.error(err);
       message.error((err as Error)?.message || "提交失败");
+    }
+  };
+
+  const onBatchAdd = async () => {
+    if (!batchUrls.trim()) {
+      message.warning("请输入至少一个链接");
+      return;
+    }
+
+    const v = form.getFieldsValue();
+    setConfig(v);
+
+    setSubmitting(true);
+    try {
+      await addOffline(batchUrls, v.offlineDestPath);
+      message.success("已提交离线下载任务");
+      setBatchUrls("");
+    } catch (err) {
+      console.error(err);
+      message.error((err as Error)?.message || "提交失败");
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -65,16 +89,33 @@ export function Panel({ open, onClose }: PanelProps) {
     </Space>
   );
 
+  const addOfflineNode = (
+    <Space direction="vertical" style={{ width: "100%" }}>
+      <Typography.Title level={5}>批量添加离线下载任务</Typography.Title>
+      <Typography.Text type="secondary">每行一个磁力链接或直链 URL</Typography.Text>
+      <Input.TextArea
+        rows={12}
+        placeholder="magnet:?xt=urn:btih:...&#10;https://example.com/file.zip&#10;..."
+        value={batchUrls}
+        onChange={(e) => setBatchUrls(e.target.value)}
+      />
+      <Button type="primary" onClick={onBatchAdd} loading={submitting} disabled={!batchUrls.trim()}>
+        批量提交
+      </Button>
+    </Space>
+  );
+
   const items = useMemo(
     () => [
-      { key: "settings", label: "设置", children: settingsNode },
       {
         key: "offline",
-        label: "离线任务",
+        label: "任务列表",
         children: <OfflineTasksTab onSwitchToSettings={() => setActiveKey("settings")} />,
       },
+      { key: "add-offline", label: "添加任务", children: addOfflineNode },
+      { key: "settings", label: "设置", children: settingsNode },
     ],
-    [settingsNode],
+    [settingsNode, addOfflineNode],
   );
 
   return (
