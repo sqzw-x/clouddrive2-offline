@@ -2,7 +2,7 @@
   "name": "clouddrive2-offline",
   "version": "1.1.0",
   "private": true,
-  "description": "一键添加磁力链接到 CloudDrive2 离线下载",
+  "description": "嗅探磁力 / ed2k 链接并一键添加到 CloudDrive2 离线下载",
   "license": "MIT",
   "author": {
     "name": "sqzw-x",

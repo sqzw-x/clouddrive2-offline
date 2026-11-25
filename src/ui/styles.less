@@ -14,10 +14,6 @@
   pointer-events: auto;
 }
 
-#cd2-userscript-root .ant-float-btn {
-  pointer-events: auto;
-}
-
 /* 让全局消息/通知位于遮罩之上并可点击 */
 #cd2-userscript-root .ant-notification,
 #cd2-userscript-root .ant-notification-notice,
@@ -31,6 +27,13 @@
 #cd2-userscript-root .ant-notification,
 #cd2-userscript-root .ant-message {
   position: fixed;
+}
+
+/* 纯文本 ed2k 链接被包装成 a 后的样式 */
+.cd2-ed2k-link {
+  color: inherit;
+  text-decoration: underline;
+  word-break: break-all;
 }
 
 /* ----- Enhanced style for injected "离线下载" button ----- */

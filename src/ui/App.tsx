@@ -1,13 +1,24 @@
-import { SettingOutlined } from "@ant-design/icons";
-import { App as AntdApp, ConfigProvider, FloatButton, theme } from "antd";
-import { useState } from "react";
+import { App as AntdApp, ConfigProvider, theme } from "antd";
+import { useEffect, useState } from "react";
 
 import { Panel } from "./Panel";
+import { registerOpenSettings } from "./settingsPanel";
 
 import "./styles.less";
 
-export function App() {
-  const [open, setOpen] = useState(false);
+export interface AppProps {
+  /** 首次挂载时直接打开设置面板 */
+  defaultOpen?: boolean;
+}
+
+export function App({ defaultOpen = false }: AppProps) {
+  const [open, setOpen] = useState(defaultOpen);
+
+  useEffect(() => {
+    registerOpenSettings(() => setOpen(true));
+    return () => registerOpenSettings(null);
+  }, []);
+
   return (
     <ConfigProvider
       theme={{
@@ -19,7 +30,6 @@ export function App() {
       }}
     >
       <AntdApp>
-        <FloatButton icon={<SettingOutlined />} style={{ left: 0, bottom: 0 }} onClick={() => setOpen(true)} />
         <Panel open={open} onClose={() => setOpen(false)} />
       </AntdApp>
     </ConfigProvider>

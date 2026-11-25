@@ -84,7 +84,11 @@ export function Panel({ open, onClose }: PanelProps) {
       <Typography.Title level={5} style={{ marginTop: 16 }}>
         快速测试
       </Typography.Title>
-      <Input placeholder="粘贴磁力链接或直链 URL" value={testingUrl} onChange={(e) => setTestingUrl(e.target.value)} />
+      <Input
+        placeholder="粘贴磁力链接、ed2k 链接或直链 URL"
+        value={testingUrl}
+        onChange={(e) => setTestingUrl(e.target.value)}
+      />
       <Button type="primary" onClick={onTestAdd} disabled={!testingUrl}>
         添加到离线下载
       </Button>
@@ -94,10 +98,10 @@ export function Panel({ open, onClose }: PanelProps) {
   const addOfflineNode = (
     <Space direction="vertical" style={{ width: "100%" }}>
       <Typography.Title level={5}>批量添加离线下载任务</Typography.Title>
-      <Typography.Text type="secondary">每行一个磁力链接或直链 URL</Typography.Text>
+      <Typography.Text type="secondary">每行一个磁力链接、ed2k 链接或直链 URL</Typography.Text>
       <Input.TextArea
         rows={12}
-        placeholder="magnet:?xt=urn:btih:...&#10;https://example.com/file.zip&#10;..."
+        placeholder="magnet:?xt=urn:btih:...&#10;ed2k://|file|example.mkv|734003200|0123456789abcdef0123456789abcdef|/&#10;https://example.com/file.zip&#10;..."
         value={batchUrls}
         onChange={(e) => setBatchUrls(e.target.value)}
       />
