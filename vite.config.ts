@@ -1,12 +1,13 @@
 import path from "node:path";
-import react from "@vitejs/plugin-react-swc";
+
+import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
-import monkey from "vite-plugin-monkey";
+import vitePluginMonkey from "vite-plugin-monkey";
 
 export default defineConfig({
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "src"),
+      "@": path.resolve(import.meta.dirname, "src"),
     },
   },
   build: {
@@ -14,7 +15,7 @@ export default defineConfig({
   },
   plugins: [
     react(),
-    monkey({
+    vitePluginMonkey({
       entry: "src/userscript.tsx",
       userscript: {
         namespace: "https://github.com/sqzw-x",
@@ -22,13 +23,9 @@ export default defineConfig({
         connect: ["*"],
       },
       build: {
-        externalGlobals: {
-          // antd: cdn.npmmirror("antd", "dist/antd.min.js"),
-        },
+        externalGlobals: {},
       },
-      server: {
-        // mountGmApi: true,
-      },
+      server: {},
     }),
   ],
 });

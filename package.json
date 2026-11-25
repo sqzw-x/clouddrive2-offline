@@ -1,45 +1,50 @@
 {
   "name": "clouddrive2-offline",
   "version": "1.1.0",
-  "description": "一键添加磁力链接到 CloudDrive2 离线下载",
   "private": true,
+  "description": "一键添加磁力链接到 CloudDrive2 离线下载",
+  "license": "MIT",
   "author": {
     "name": "sqzw-x",
     "email": "mdcx.feedback@gmail.com",
     "url": "https://github.com/sqzw-x"
   },
   "type": "module",
-  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "gen": "buf generate --template buf.gen.yaml",
     "preview": "vite preview",
-    "ci": "biome ci",
-    "lint": "biome lint --write",
-    "format": "biome format --write",
+    "check": "oxlint . && oxfmt --check .",
+    "lint": "oxlint --fix .",
+    "format": "oxfmt --write .",
+    "typecheck": "tsc -b",
     "dep": "ncu -i --format group"
   },
   "dependencies": {
     "@ant-design/icons": "^6.1.0",
-    "@ant-design/v5-patch-for-react-19": "^1.0.3",
     "@bufbuild/protobuf": "^2.10.2",
     "@connectrpc/connect": "^2.1.1",
     "@connectrpc/connect-web": "^2.1.1",
     "antd": "^6.1.0",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3"
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.3.8",
-    "@types/node": "^24.10.1",
-    "@types/react": "^19.2.7",
-    "@types/react-dom": "^19.2.3",
-    "@types/tampermonkey": "^5.0.5",
-    "@vitejs/plugin-react-swc": "^4.2.2",
-    "npm-check-updates": "^19.2.0",
-    "typescript": "^5.9.3",
-    "vite": "^7.2.7",
-    "vite-plugin-monkey": "^7.1.6"
+    "@types/node": "^26.6.7",
+    "@types/react": "^19.3.1",
+    "@types/react-dom": "^19.3.0",
+    "@types/tampermonkey": "^5.5.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "less": "^4.9.1",
+    "npm-check-updates": "^23.1.1",
+    "oxfmt": "^0.80.0",
+    "oxlint": "^1.95.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8",
+    "vite-plugin-monkey": "^8.1.1"
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
   }
 }

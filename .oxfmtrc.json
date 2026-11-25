@@ -1,0 +1,7 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 120,
+  "singleQuote": false,
+  "sortImports": true,
+  "ignorePatterns": ["src/proto/**", ".vscode/**", "dist/**", "node_modules/**", "pnpm-lock.yaml"]
+}

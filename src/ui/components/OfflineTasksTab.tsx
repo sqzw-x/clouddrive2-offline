@@ -2,6 +2,7 @@ import { CopyOutlined, DeleteOutlined } from "@ant-design/icons";
 import { App as AntdApp, Button, Card, Checkbox, Divider, Flex, Space, Table, Tag, Tooltip, Typography } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+
 import { getConfig } from "@/config";
 import { getOfflineQuotaInfo, listAllOfflineFiles, removeOfflineFilesBulk } from "@/grpc/client";
 import type { OfflineFileStatus } from "@/proto/clouddrive_pb";
@@ -67,6 +68,7 @@ export function OfflineTasksTab({ onSwitchToSettings }: OfflineTasksTabProps) {
   }, [message, page]);
 
   useEffect(() => {
+    // oxlint-disable-next-line react-hooks/set-state-in-effect
     fetchAll();
   }, [fetchAll]);
 

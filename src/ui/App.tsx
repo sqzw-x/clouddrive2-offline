@@ -1,7 +1,9 @@
 import { SettingOutlined } from "@ant-design/icons";
 import { App as AntdApp, ConfigProvider, FloatButton, theme } from "antd";
 import { useState } from "react";
+
 import { Panel } from "./Panel";
+
 import "./styles.less";
 
 export function App() {

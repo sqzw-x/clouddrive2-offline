@@ -2,11 +2,12 @@
   Entry of the userscript bundle.
   We mount a React app into the target page and expose minimal GM usage with types.
 */
-import "@ant-design/v5-patch-for-react-19";
 import { notification } from "antd";
 import { createRoot } from "react-dom/client";
+
 import { getConfig } from "@/config";
 import { addOffline } from "@/grpc/client";
+
 import { App } from "./ui/App";
 
 function ensureContainer(id = "cd2-userscript-root") {

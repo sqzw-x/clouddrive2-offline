@@ -1,7 +1,9 @@
 import { App as AntdApp, Button, Form, Input, Modal, Space, Tabs, Typography } from "antd";
-import { useMemo, useState } from "react";
+import { useState } from "react";
+
 import { getConfig, setConfig } from "@/config";
 import { addOffline } from "@/grpc/client";
+
 import { OfflineTasksTab } from "./components/OfflineTasksTab";
 
 export interface PanelProps {
@@ -105,18 +107,15 @@ export function Panel({ open, onClose }: PanelProps) {
     </Space>
   );
 
-  const items = useMemo(
-    () => [
-      {
-        key: "offline",
-        label: "任务列表",
-        children: <OfflineTasksTab onSwitchToSettings={() => setActiveKey("settings")} />,
-      },
-      { key: "add-offline", label: "添加任务", children: addOfflineNode },
-      { key: "settings", label: "设置", children: settingsNode },
-    ],
-    [settingsNode, addOfflineNode],
-  );
+  const items = [
+    {
+      key: "offline",
+      label: "任务列表",
+      children: <OfflineTasksTab onSwitchToSettings={() => setActiveKey("settings")} />,
+    },
+    { key: "add-offline", label: "添加任务", children: addOfflineNode },
+    { key: "settings", label: "设置", children: settingsNode },
+  ];
 
   return (
     <Modal
